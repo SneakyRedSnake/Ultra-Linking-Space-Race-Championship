@@ -22,7 +22,7 @@ public class Movement : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         gameObject.GetComponent<Rigidbody2D>().AddForce(force);
-        Debug.Log(gameObject.GetComponent<Rigidbody2D>().velocity);
+        //Debug.Log(gameObject.GetComponent<Rigidbody2D>().velocity);
     }
 
     public void AddMovement(float horiForce, float vertForce) {

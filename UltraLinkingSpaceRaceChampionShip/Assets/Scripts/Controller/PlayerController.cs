@@ -8,12 +8,15 @@ using System.Collections;
 /// </summary>
 public class PlayerController : MonoBehaviour {
 
-	/// <summary>
+    [SerializeField]
+    private float Joystick = 1;
+
+    /// <summary>
     ///     Retrieve the axis translation of the player, and send it to the Move component
     /// </summary>
-	void Update () {
-        float verticalTranslation = Input.GetAxis("Vertical");
-        float horizontalTranslation = Input.GetAxis("Horizontal");
+    void Update () {
+        float horizontalTranslation = Input.GetAxis("JoystickHorizontal" + Joystick);
+        float verticalTranslation = Input.GetAxis("JoystickVertical" + Joystick);
 
         gameObject.GetComponent<Movement>().AddMovement(horizontalTranslation, verticalTranslation);
     }

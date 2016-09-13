@@ -15,6 +15,6 @@ public class PlayerController : MonoBehaviour {
         float verticalTranslation = Input.GetAxis("Vertical");
         float horizontalTranslation = Input.GetAxis("Horizontal");
 
-        //component.move(horizontal, vertical);
+        gameObject.GetComponent<Movement>().AddMovement(horizontalTranslation, verticalTranslation);
     }
 }

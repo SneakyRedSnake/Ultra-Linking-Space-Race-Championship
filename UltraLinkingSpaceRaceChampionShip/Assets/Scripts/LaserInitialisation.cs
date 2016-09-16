@@ -9,19 +9,14 @@ public class LaserInitialisation : MonoBehaviour {
     [SerializeField]
     private GameObject child2;
 
+    private PhysicalLink link;
+    
     // Use this for initialization
     void Start () {
-        Vector3 pos = gameObject.GetComponent<Transform>().position;
-        Vector3 size = gameObject.GetComponent<Transform>().localScale;
-        Quaternion rot = gameObject.GetComponent<Transform>().rotation;
+        DistanceJoint2D dj2d = child1.AddComponent<DistanceJoint2D>() as DistanceJoint2D;
+        dj2d.connectedBody = child2.GetComponent<Rigidbody2D>();
 
-
-        child1.GetComponent<Transform>().position = /*Reloud!!!*/new Vector3();
-        child2.GetComponent<Transform>().position = /*Reloud!!!*/new Vector3();
+        link = this.GetComponent<PhysicalLink>();
+        link.SetLinkBetween(child1, child2);
     }
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
 }
